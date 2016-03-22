@@ -16,7 +16,7 @@ function SelectNews()
 	$max_id='SELECT  MAX(id) FROM news_send';
 	$request='SELECT title_news FROM news_send WHERE id = ('.$max_id.')';
 	$result = mysql_fetch_array(mysql_query($request));
-	return $result;	
+	return $result[0];//временно пока не разобрался с фетчареем	
 }
 
 
