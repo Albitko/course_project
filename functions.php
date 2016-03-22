@@ -1,7 +1,7 @@
 <?php 
 
 require_once 'simple_html_dom.php';//Подключаем библиотеку
-require 'db.php';
+//require 'db.php';
 
 function ParseIt()
 {
@@ -15,10 +15,10 @@ if ($i == $how_many_news) break; // прерывание цикла
 }
 return $news;
 }
-$a= ParseIt();
-InsertNews($a);
-$nw=SelectNews();
-print_r($nw[0]);//посмотреть ФУНКЦИЮ ФЕТЧАРЕЙ МОЖЕТ МОЖНО ВЫВОДИТЬ НЕ МАССИВ А СТРОКУ
+//$a= ParseIt();
+//InsertNews($a);
+//$nw=SelectNews();
+//print_r($nw[0]);//посмотреть ФУНКЦИЮ ФЕТЧАРЕЙ МОЖЕТ МОЖНО ВЫВОДИТЬ НЕ МАССИВ А СТРОКУ
 
 
 
