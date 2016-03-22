@@ -16,8 +16,6 @@ if ($i == $how_many_news) break; // прерывание цикла
 return $news;
 }
 $a= ParseIt();
-var_dump($a);
-
 InsertNews($a);
 $nw=SelectNews();
 print_r($nw[0]);//посмотреть ФУНКЦИЮ ФЕТЧАРЕЙ МОЖЕТ МОЖНО ВЫВОДИТЬ НЕ МАССИВ А СТРОКУ
