@@ -5,7 +5,7 @@ require_once 'simple_html_dom.php';//Подключаем библиотеку
 
 function ParseIt($how_many_news)
 {
-	$how_many_news;//Количество новостей, для парсинга
+	//$how_many_news;//Количество новостей, для парсинга
 	$html=file_get_html('http://rg.ru/tema/mir/');
 	$i=0;
 foreach ($html->find('.b-news-inner__list-item') as $article) { 
@@ -15,10 +15,15 @@ if ($i == $how_many_news) break; // прерывание цикла
 }
 return $news;
 }
-for ($i=1; $i < 5; $i++) { 
-	$a= ParseIt($i);
-	print_r($a);	
-}
+/*
+	for ($i=1; $i < 7; $i++) { //больше 7 нельзя
+		$a= ParseIt($i);
+	print_r($a);
+	}
+	*/	
+
+	
+
 
 //InsertNews($a);
 //$nw=SelectNews();
