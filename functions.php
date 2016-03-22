@@ -5,16 +5,22 @@ require_once 'simple_html_dom.php';//Подключаем библиотеку
 
 function ParseIt($how_many_news)
 {
-	//$how_many_news;//Количество новостей, для парсинга
-	$html=file_get_html('http://rg.ru/tema/mir/');
-	$i=0;
+//Количество новостей, для парсинга
+$html=file_get_html('http://rg.ru/tema/mir/');
+$i='0';
 foreach ($html->find('.b-news-inner__list-item') as $article) { 
-$news=$article->find('a.b-link_title', 0)->innertext;
+$news=$article->find('a.b-link_title',0)->innertext;
+
 $i++;
 if ($i == $how_many_news) break; // прерывание цикла
 }
 return $news;
 }
+
+
+$b=ParseIt(2);
+var_dump($b);
+
 /*
 	for ($i=1; $i < 7; $i++) { //больше 7 нельзя
 		$a= ParseIt($i);
