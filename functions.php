@@ -15,13 +15,6 @@ foreach ($html->find($sel_from) as $article) {
 return $news;
 }
 
-$a='h1.title';
-$b='a.post_title';
-$c='https://habrahabr.ru/hub/infosecurity/all/';
-$d='1';
-
-$x=Parse($a,$b,$c,$d);
-var_dump($x);
 
  
 
