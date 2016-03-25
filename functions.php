@@ -1,57 +1,28 @@
 <?php 
 
 require_once 'simple_html_dom.php';//Подключаем библиотеку
-//require 'db.php';
 
-function ParseIt($how_many_news)
+
+function Parse($sel_from,$sel_as,$url,$how_many_news)
 {
-//Количество новостей, для парсинга
-$html=file_get_html('http://rg.ru/tema/mir/');
+$html=file_get_html($url);
 $i='0';
-foreach ($html->find('.b-news-inner__list-item') as $article) { 
-$news=$article->find('a.b-link_title',0)->innertext;
-
-$i++;
-if ($i == $how_many_news) break; // прерывание цикла
-}
+foreach ($html->find($sel_from) as $article) { 
+	$news=$article->find($sel_as,0)->innertext;
+	$i++;
+	if ($i == $how_many_news) break; // прерывание цикла
+	}
 return $news;
 }
 
+$a='h1.title';
+$b='a.post_title';
+$c='https://habrahabr.ru/hub/infosecurity/all/';
+$d='1';
 
-$b=ParseIt(2);
-var_dump($b);
+$x=Parse($a,$b,$c,$d);
+var_dump($x);
 
-/*
-	for ($i=1; $i < 7; $i++) { //больше 7 нельзя
-		$a= ParseIt($i);
-	print_r($a);
-	}
-	*/	
+ 
 
-	
-
-
-//InsertNews($a);
-//$nw=SelectNews();
-//print_r($nw[0]);//посмотреть ФУНКЦИЮ ФЕТЧАРЕЙ МОЖЕТ МОЖНО ВЫВОДИТЬ НЕ МАССИВ А СТРОКУ
-
-
-
-
-
-
-//Вывод сообщений
-/*
-for ($j = 0; $j < $last_news; $j++) {
-  echo '<div class="news_post">';
-  echo '<p class="text">' . $news[$j]['text'] . '</p>';
-  echo '<p class="about">' . $news[$j]['time'] . '</p>';
-  echo '</div>';
-}
-*/
-
-
-
- //$html->clear(); 
- //unset($html);
  ?>
