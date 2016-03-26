@@ -22,16 +22,5 @@ while ($old_news!=$new_news){
 
 $NEWS=SelectManyNews($number);
 print_r($NEWS);
-/*
-do {
-	$NEWS[]=$new_news;
-	$n++;
-	$new_news=Parse($a,$b,$c,$n);
-} while ($old_news!=$new_news);
-
-InserNews($NEWS[0]);
-	var_dump($NEWS);
-
-*/
 
  ?>
