@@ -10,7 +10,7 @@ function InsertNews($value)
 	$result= mysql_query($request,$db);
 }
 
-function SelectNews()
+function SelectNews()//Исправить название на SelectLastNews
 {
 
 	$max_id='SELECT  MAX(id) FROM news_send';
@@ -19,8 +19,18 @@ function SelectNews()
 	return $result[0];//временно пока не разобрался с фетчареем	
 }
 
+function SelectManyNews($how_many)
+{
+	$request=mysql_query("SELECT title_news FROM news_send ORDER BY id  LIMIT ".$how_many);
+	while ($result = mysql_fetch_array($request)) {
+		$NEWS[]=$result;
+	}
+	return $NEWS;	
+}
 
 
+$j=SelectManyNews(2);//????
 
+print_r($j);
 
 ?>
