@@ -9,6 +9,14 @@ function InsertNews($value,$where)
 	$request="INSERT INTO news_send ($where) VALUES ('$value')";
 	$result= mysql_query($request,$db);
 }
+////доработать!
+function UpdateNews($value,$where)
+{
+	global $db;
+	$max_id='SELECT  MAX(id) FROM news_send';
+	$request="UPDATE news_send SET $where=$value WHERE id = ('.$max_id.')' ";
+	$result= mysql_query($request,$db);
+}
 
 //Забрать из БД последнюю новость
 function SelectLastNews()
