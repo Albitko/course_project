@@ -2,11 +2,11 @@
 	$db=mysql_connect('localhost','alex','123456');
 	mysql_select_db("test",$db);
 
-//Поместить новость в БД
-function InsertNews($value)
+//Поместить новость в БД экспериментирую с вере
+function InsertNews($value,$where)
 {
 	global $db;
-	$request="INSERT INTO news_send (title_news) VALUES ('$value')";
+	$request="INSERT INTO news_send ($where) VALUES ('$value')";
 	$result= mysql_query($request,$db);
 }
 
