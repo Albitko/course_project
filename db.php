@@ -2,7 +2,7 @@
 	$db=mysql_connect('localhost','alex','123456');
 	mysql_select_db("test",$db);
 
-
+//Поместить новость в БД
 function InsertNews($value)
 {
 	global $db;
@@ -10,6 +10,7 @@ function InsertNews($value)
 	$result= mysql_query($request,$db);
 }
 
+//Забрать из БД последнюю новость
 function SelectLastNews()
 {
 
@@ -18,7 +19,7 @@ function SelectLastNews()
 	$result = mysql_fetch_array(mysql_query($request));
 	return $result[0];//временно пока не разобрался с фетчареем	
 }
-
+//Забрать из БД N последних записей
 function SelectManyNews($how_many)
 {
 	$request=mysql_query("SELECT title_news FROM news_send ORDER BY id  LIMIT ".$how_many);
@@ -27,5 +28,6 @@ function SelectManyNews($how_many)
 	}
 	return $NEWS;	
 }
+
 
 ?>
