@@ -34,7 +34,7 @@ $where_text='text_news';
 //InsertNewNews($sel_from_title,$sel_from_text,$sel_as_title,
 	//$sel_as_text, $url,$number, $old_news,$new_news,$where_title,$where_text);
 $XT=SelectManyNews(4);
-print_r($XT);
+var_dump($XT);
 
 
  ?>
