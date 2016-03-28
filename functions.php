@@ -2,7 +2,7 @@
 
 require_once 'simple_html_dom.php';//Подключаем библиотеку
 
-
+//Универсальный парсинг
 function Parse($sel_from,$sel_as,$url,$how_many_news)
 {
 $html=file_get_html($url);
