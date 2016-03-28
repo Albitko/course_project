@@ -1,7 +1,7 @@
 <?php
 	$db=mysql_connect('localhost','alex','123456');
 	mysql_select_db("test",$db);
-
+	mysql_query('set names utf8');
 //Поместить новость в БД экспериментирую с вере
 function InsertNews($value,$where)
 {
@@ -31,9 +31,9 @@ function SelectLastNews()
 }
 //Забрать из БД N последних записей
 function SelectManyNews($how_many)
-{
-	$request=mysql_query("SELECT title_news FROM news_send ORDER BY id  LIMIT ".$how_many);
-	while ($result = mysql_fetch_array($request)) {
+{//Надо расширить тайтл невс и текстневс
+	$request=mysql_query("SELECT title_news, text_news FROM news_send ORDER BY id  LIMIT ".$how_many);
+	while ($result = mysql_fetch_array($request,MYSQL_ASSOC)) {
 		$NEWS[]=$result;
 	}
 	return $NEWS;	
