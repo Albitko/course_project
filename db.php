@@ -9,7 +9,7 @@ function InsertNews($value,$where)
 	$request="INSERT INTO news_send ($where) VALUES ('$value')";
 	$result= mysql_query($request,$db);
 }
-////доработать!
+//Функция записи в БД заголовка и текста
 function InsertAllNews($where_text,$where_title,
 	$title,$text)
 {
