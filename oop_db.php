@@ -19,7 +19,7 @@ function __construct()
 
 #Создали класс наследник который 
 #при создании подключается к нашей бд
-class News extends BD
+class InsertNews extends BD
 {
 public $result; #В эту перменную записываем 
 #результат почти всех функций
@@ -39,6 +39,12 @@ function InsertAllNews($where_text,$where_title,$title,$text)
 	VALUES ('$title','$text')";
 	$this->result= mysql_query($request,$this->db_connect);
 }
+}
+
+class SelectNews extends BD
+{
+public $result; #В эту перменную записываем 
+#результат почти всех функций
 
 #Забрать заголовок последней новости
 function SelectLastNews()
