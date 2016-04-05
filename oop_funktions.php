@@ -29,5 +29,5 @@ $url='https://habrahabr.ru/hub/infosecurity/all/';
 $for_example='5';
 $a= new Parse();
 $a->Parsing($sel_from_title,$sel_as_title,$url,$for_example);
- */
+*/
  ?>
