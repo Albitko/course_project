@@ -2,6 +2,8 @@
 	$db=mysql_connect('localhost','alex','123456');
 	mysql_select_db("test",$db);
 	mysql_query('set names utf8');
+
+
 //Поместить новость в БД экспериментирую с вере
 function InsertNews($value,$where)
 {
