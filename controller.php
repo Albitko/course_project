@@ -22,6 +22,7 @@ class ParsingWhatNeed extends Parse
 		$number++;
 		$new_news=parent::Parsing($sel_from_title,$sel_as_title,$url,$number);
 	} 
+	return true;
 }
 
 
@@ -29,6 +30,7 @@ class ParsingWhatNeed extends Parse
 
 $newses=new Parse();
 $final=new ParsingWhatNeed();
+$database=new SelectNews();
 
 $sel_from_title='h1.title';
 $sel_as_title='a.post_title';
@@ -44,9 +46,15 @@ $sel_as_text='.html_format';
 $where_text='text_news';
 
 
-$final->InsertParsingNews	($sel_from_title,$sel_from_text,$sel_as_title,
-$sel_as_text, $url,$number, $old_news,$new_news,$where_title,$where_text);
-//$XT=SelectManyNews(4);
+if ($final->InsertParsingNews	($sel_from_title,$sel_from_text,$sel_as_title,
+$sel_as_text, $url,$number, $old_news,$new_news,$where_title,$where_text)=="true") {
+	echo "Свежие новости уже в БД";
+} else {
+	echo "Упссс....";
+}
+//$final->InsertParsingNews	($sel_from_title,$sel_from_text,$sel_as_title,
+//$sel_as_text, $url,$number, $old_news,$new_news,$where_title,$where_text);
+//$XT=$database->SelectManyNews(4);
 //var_dump($XT);
 
 
